@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import Oddział
 from .models import Dziecko
 from .models import Zmiana
@@ -51,9 +53,17 @@ def komentarz(request, id):
     }
     return render(request, "fabryka/komentarz.html", context)
 
+@csrf_exempt
 def komentarz_new(request):
-    # komentarz = Komentarz.objects.get(id=id)
-    # context={
-    #     'komentarz': komentarz,
-    # }
+    if request.method == "POST":
+        tresc = request.POST.get("tresc")
+        ocena = request.POST.get("ocena")
+        # if ocena<1 or ocena>10:
+
+        kom = Komentarz(tresc = tresc, ocena = ocena)
+        try:
+            kom.save()
+            return redirect("komentarze")
+        except:
+            pass
     return render(request, "fabryka/komentarz_new.html")
