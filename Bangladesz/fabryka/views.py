@@ -50,3 +50,10 @@ def komentarz(request, id):
         'komentarz': komentarz,
     }
     return render(request, "fabryka/komentarz.html", context)
+
+def komentarz_new(request):
+    # komentarz = Komentarz.objects.get(id=id)
+    # context={
+    #     'komentarz': komentarz,
+    # }
+    return render(request, "fabryka/komentarz_new.html")

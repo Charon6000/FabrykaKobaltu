@@ -125,3 +125,18 @@ nav ul li a {
 nav ul li a:hover {
     color: #ff6600; /* zmiana koloru tekstu */
 }
+
+input[type="text"]{
+    height: 20px;
+    width: 300px;
+}
+
+input[type="number"]{
+    height: 20px;
+    width: 50px;
+}
+
+button{
+    height: 40px;
+    width: auto;
+}

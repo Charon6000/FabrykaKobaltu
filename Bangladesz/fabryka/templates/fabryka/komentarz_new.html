@@ -1,0 +1,10 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Nowy Komentarz{% endblock %}
+{% block naglowek %}Nowy Komentarz:{% endblock %}
+{% block zawartosc %}
+            <form action="" method="post">
+                Treść: <input type="text" name="tresc"><br>
+                Ocena: <input type="number" name="ocena"><br>
+                <button>POST</button><br>
+            </form>
+{% endblock %}
