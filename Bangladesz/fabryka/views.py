@@ -55,15 +55,31 @@ def komentarz(request, id):
 
 @csrf_exempt
 def komentarz_new(request):
+    zgoda = True
+    context = {}
     if request.method == "POST":
         tresc = request.POST.get("tresc")
         ocena = request.POST.get("ocena")
-        # if ocena<1 or ocena>10:
-
-        kom = Komentarz(tresc = tresc, ocena = ocena)
-        try:
-            kom.save()
-            return redirect("komentarze")
-        except:
-            pass
-    return render(request, "fabryka/komentarz_new.html")
+        
+        if ocena:
+            if int(ocena)<1 or int(ocena)>10:
+                zgoda = False
+                context['ocenawarning'] = "Ocena ma mieścić się w zakresie od 1-10"
+                context['tresc'] = tresc
+                context['ocena']=ocena
+        
+        if tresc:
+            if len(tresc)>99 or tresc == None:
+                zgoda=False
+                context['trescwarning'] = "Tresc ma mieć mniej niż 99 znaków"
+                context['tresc'] = tresc
+                context['ocena']=ocena
+        
+        if zgoda:
+            kom = Komentarz(tresc = tresc, ocena = ocena)
+            try:
+                kom.save()
+                return redirect("komentarze")
+            except:
+                pass
+    return render(request, "fabryka/komentarz_new.html", context)
