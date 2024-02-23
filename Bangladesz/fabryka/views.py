@@ -30,11 +30,14 @@ def zmiany(request):
 def komentarze(request):
     ocena_min = request.GET.get('ocena_min')
     ocena_max = request.GET.get('ocena_max')
+
+    komentarze = Komentarz.objects.all()
     
-    if ocena_min and ocena_max and ocena_min<=ocena_max:
-        komentarze = Komentarz.objects.filter(ocena__gte = ocena_min, ocena__lte = ocena_max )
-    else:
-        komentarze = Komentarz.objects.all()
+    if ocena_min:
+        komentarze = Komentarz.objects.filter(ocena__lte = ocena_max )
+
+    if ocena_max:
+        komentarze = Komentarz.objects.filter(ocena__gte = ocena_min)
 
     context={
         'komentarze': komentarze,
