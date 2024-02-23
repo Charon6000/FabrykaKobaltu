@@ -1,0 +1,26 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Komentarze{% endblock %}
+{% block naglowek %}Komentarze:{% endblock %}
+{% block zawartosc %}
+<form action="" method="get">
+  Minimalna ocena: <input type="number" name="ocena_min">
+  Maksymalna ocena: <input type="number" name="ocena_max">
+  <button>GET</button>
+</form>
+            <thead>
+              <tr>
+                <th>data</th>
+                <th>ocena</th>
+                <th>tresc</th>
+              </tr>
+            </thead>
+            {% for komentarz in komentarze %}
+            <tbody>
+                <tr>
+                  <td>{{komentarz.data}}</td>
+                  <td>{{komentarz.ocena}}</td>
+                  <td><a href="{% url 'komentarz' id=komentarz.id %}">{{komentarz.tresc|truncatewords:3}}...</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+{% endblock %}

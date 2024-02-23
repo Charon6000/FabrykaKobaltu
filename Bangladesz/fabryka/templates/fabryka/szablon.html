@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tytul %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/oddzialy.css' %}"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'dzieci' %}">Dzieci</a></li>
+                <li><a href="{% url 'oddziały' %}">Oddziały</a></li>
+                <li><a href="{% url 'zmiany' %}">Zmiany</a></li>
+                <li><a href="{% url 'komentarze' %}">Komentarze</a></li>
+            </ul>
+        </nav>
+    </header>
+   <h1>{% block naglowek %}{% endblock %}</h1>
+    <div class="container">
+        <table class="company-table">
+            {% block zawartosc %}
+            {% endblock %}
+          </table>
+    </div>
+    <div class="container">
+        <img class="image-container" src="{% static 'img/czarnuch.jpg' %}" alt="czarnuch">
+        <img class="image-container" src="{% static 'img/umierajadzieci.jpg' %}" alt="umieraja dzieci">
+        <img class="image-container" src="{% static 'img/KOngo.jpg' %}" alt="kongo">
+        <img class="image-container" src="{% static 'img/Kobalt.jpg' %}" alt="Kobalt">
+    </div>
+</body>
+</html>

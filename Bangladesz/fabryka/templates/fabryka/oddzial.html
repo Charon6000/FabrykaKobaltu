@@ -1,0 +1,19 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Oddziały{% endblock %}
+{% block naglowek %}Oddziały{% endblock %}
+{% block zawartosc %}
+    <thead>
+        <tr>
+        <th>Nazwa</th>
+        <th>CEO</th>
+        </tr>
+  </thead>
+    {% for oddzial in oddzialy %}
+    <tbody>
+        <tr>
+            <td>{{oddzial.nazwa}}</td>
+            <td>{{oddzial.ceo}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+{% endblock %}

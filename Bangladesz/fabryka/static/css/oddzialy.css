@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.company-table th, .company-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.company-table th {
+    background-color: #f2f2f2;
+}
+
+.company-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.company-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Styl dla kontenera zdjęcia */
+.image-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+/* Styl dla samego zdjęcia */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dodatkowy efekt, jeśli chcesz, aby zdjęcie miało obramowanie */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff; /* Kolor obramowania */
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+/* Efekt cienia, aby zdjęcie wyglądało trójwymiarowo */
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: 10px; /* Reguluje odległość cienia od zdjęcia */
+    left: 10px; /* Reguluje odległość cienia od zdjęcia */
+    width: calc(100% - 20px); /* Reguluje szerokość cienia */
+    height: calc(100% - 20px); /* Reguluje wysokość cienia */
+    background: rgba(0, 0, 0, 0.3); /* Kolor cienia */
+    border-radius: 50%;
+    z-index: -1; /* Ustawienie indeksu z, aby cień był pod zdjęciem */
+}
+
+/* Resetowanie stylów dla listy */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styl dla nagłówka */
+header {
+    background-color: #0000; /* kolor tła */
+    color: #0000;
+    padding: 10px 0; /* wewnętrzny odstęp */
+}
+
+/* Styl dla menu */
+nav ul {
+    text-align: center; /* wyśrodkowanie elementów menu */
+}
+
+/* Styl dla elementów menu */
+nav ul li {
+    display: inline-block; /* wyświetlanie elementów obok siebie */
+    margin-right: 20px; /* odstęp między elementami */
+}
+
+/* Styl dla linków */
+nav ul li a {
+    color: blue; /* kolor tekstu */
+    text-decoration: none; /* usuwanie podkreślenia odnośnika */
+    font-size: 16px; /* rozmiar tekstu */
+    font-weight: bold; /* wytłuszczenie tekstu */
+    padding: 5px 10px; /* wewnętrzny odstęp */
+    transition: color 0.3s ease; /* płynna zmiana koloru po najechaniu myszką */
+}
+
+/* Styl dla linków po najechaniu myszką */
+nav ul li a:hover {
+    color: #ff6600; /* zmiana koloru tekstu */
+}

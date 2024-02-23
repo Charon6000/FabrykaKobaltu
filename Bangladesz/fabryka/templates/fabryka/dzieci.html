@@ -1,0 +1,29 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Dzieci{% endblock %}
+{% block naglowek %}Dzieci{% endblock %}
+{% block zawartosc %}
+            <thead>
+              <tr>
+                <th>Pensja</th>
+                <th>stopień anorekcji</th>
+                <th>kolor</th>
+                <th>choroby</th>
+                <th>wiek</th>
+                <th>zmiana</th>
+                <th>oddział</th>
+              </tr>
+            </thead>
+            {% for dziecko in dzieci %}
+            <tbody>
+                <tr>
+                    <td>{{dziecko.pensja}}</th>
+                    <td> {{dziecko.st_anorekcji}}</td>
+                    <td>{{dziecko.kolor}}</td>
+                    <td>{{dziecko.choroby}}</td>
+                    <td>{{dziecko.wiek}}</td>
+                    <td>{{dziecko.zmiana}}</td>
+                    <td>{{dziecko.oddział}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Komentarz{% endblock %}
+{% block naglowek %}Komentarz:{% endblock %}
+{% block zawartosc %}
+            <thead>
+              <tr>
+                <th>data</th>
+                <th>ocena</th>
+                <th>tresc</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>{{komentarz.data}}</td>
+                  <td>{{komentarz.ocena}}</td>
+                  <td>{{komentarz.tresc}}</td>
+                </a>
+                </tr>
+            </tbody>
+{% endblock %}

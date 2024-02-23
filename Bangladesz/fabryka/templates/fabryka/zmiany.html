@@ -1,0 +1,19 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Zmiany{% endblock %}
+{% block naglowek %}Zmiany:{% endblock %}
+{% block zawartosc %}
+            <thead>
+              <tr>
+                <th>stanowisko</th>
+                <th>zakres_godzin</th>
+              </tr>
+            </thead>
+            {% for zmiana in zmiany %}
+            <tbody>
+                <tr>
+                  <td>{{zmiana.stanowisko}}</td>
+                  <td>{{zmiana.zakres_godzin}}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+{% endblock %}

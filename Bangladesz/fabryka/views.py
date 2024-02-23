@@ -1,0 +1,49 @@
+from django.shortcuts import render
+from .models import Oddział
+from .models import Dziecko
+from .models import Zmiana
+from .models import Komentarz
+
+# Create your views here.
+
+def oddzial(request):
+    oddzialy = Oddział.objects.all()
+    context = {
+        'oddzialy': oddzialy,
+    }
+    return render(request, 'fabryka/oddzial.html', context)
+
+def dzieci(request):
+    dziecko = Dziecko.objects.all()
+    context = {
+        'dzieci': dziecko,
+    }
+    return render(request, 'fabryka/dzieci.html', context)
+
+def zmiany(request):
+    zmiany = Zmiana.objects.all()
+    context = {
+        'zmiany': zmiany,
+    }
+    return render(request, 'fabryka/zmiany.html', context)
+
+def komentarze(request):
+    ocena_min = request.GET.get('ocena_min')
+    ocena_max = request.GET.get('ocena_max')
+    
+    if ocena_min and ocena_max and ocena_min<=ocena_max:
+        komentarze = Komentarz.objects.filter(ocena__gte = ocena_min, ocena__lte = ocena_max )
+    else:
+        komentarze = Komentarz.objects.all()
+
+    context={
+        'komentarze': komentarze,
+    }
+    return render(request, "fabryka/komentarze.html", context)
+
+def komentarz(request, id):
+    komentarz = Komentarz.objects.get(id=id)
+    context={
+        'komentarz': komentarz,
+    }
+    return render(request, "fabryka/komentarz.html", context)
