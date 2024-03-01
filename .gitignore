@@ -1,5 +1,5 @@
 #Zbędne foldery Unity (za dużo zajmują miejsca)
 venv/
-
+img/
 *.css
-*.img
+*.sqlite3
