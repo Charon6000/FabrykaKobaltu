@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 from .models import Oddział
 from .models import Dziecko
@@ -86,6 +87,7 @@ def komentarz_new(request):
     return render(request, "fabryka/komentarz_new.html", context)
 
 @csrf_exempt
+@login_required
 def komentarz_edit(request, id):
     komentarz = Komentarz.objects.get(id=id)
     zgoda = True
@@ -120,6 +122,7 @@ def komentarz_edit(request, id):
     return render(request, "fabryka/komentarz_edit.html", context)
 
 @csrf_exempt
+@login_required
 def komentarz_delete(request, id):
     komentarz = Komentarz.objects.get(id=id)
     if request.method == "POST":
@@ -128,4 +131,4 @@ def komentarz_delete(request, id):
             return redirect("komentarze")
         except:
             pass
-    return render(request, "fabryka/komentarz_delete.html")
+    return render(request, "fabryka/komentarz_delete.html", context={'komentarz':komentarz})

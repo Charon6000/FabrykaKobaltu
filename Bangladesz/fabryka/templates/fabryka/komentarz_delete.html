@@ -2,6 +2,17 @@
 {% block tytul %}Komentarze{% endblock %}
 {% block naglowek %}Komentarze:{% endblock %}
 {% block zawartosc %}
+<tr>
+  <td>Data</td>
+  <td>Ocena</td>
+  <td>Tresc</td>
+</tr>
+<tr>
+  <td>{{komentarz.data}}</td>
+  <td>{{komentarz.ocena}}</td>
+  <td>{{komentarz.tresc}}</td>
+</a>
+</tr>
     <form action="" method="post">
       Czy na pewno chcesz usunąć komentarz?<br>
       <button>Tak</button><br>
