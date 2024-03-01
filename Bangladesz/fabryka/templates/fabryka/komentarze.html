@@ -12,6 +12,8 @@
                 <th>data</th>
                 <th>ocena</th>
                 <th>tresc</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             {% for komentarz in komentarze %}
@@ -20,6 +22,8 @@
                   <td>{{komentarz.data}}</td>
                   <td>{{komentarz.ocena}}</td>
                   <td><a href="{% url 'komentarz' id=komentarz.id %}">{{komentarz.tresc|truncatewords:3}}...</a></td>
+                  <td><a href="{% url 'komentarz_delete' id=komentarz.id %}">delete</a></td>
+                  <td><a href="{% url 'komentarz_edit' id=komentarz.id %}">edit</a></td>
                 </tr>
             </tbody>
             {% endfor %}

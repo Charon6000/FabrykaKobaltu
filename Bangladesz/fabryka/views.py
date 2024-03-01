@@ -35,11 +35,12 @@ def komentarze(request):
 
     komentarze = Komentarz.objects.all()
     
-    if ocena_max:
+    if ocena_max and ocena_max != "":
         komentarze = komentarze.filter(ocena__lte = ocena_max )
 
-    if ocena_min:
+    if ocena_min and ocena_min != "":
         komentarze = komentarze.filter(ocena__gte = ocena_min)
+    
 
     context={
         'komentarze': komentarze,
@@ -117,3 +118,14 @@ def komentarz_edit(request, id):
             except:
                 pass
     return render(request, "fabryka/komentarz_edit.html", context)
+
+@csrf_exempt
+def komentarz_delete(request, id):
+    komentarz = Komentarz.objects.get(id=id)
+    if request.method == "POST":
+        try:
+            komentarz.delete()
+            return redirect("komentarze")
+        except:
+            pass
+    return render(request, "fabryka/komentarz_delete.html")

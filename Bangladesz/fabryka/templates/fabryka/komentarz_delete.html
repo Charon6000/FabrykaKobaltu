@@ -1,0 +1,10 @@
+{% extends "fabryka/szablon.html" %}
+{% block tytul %}Komentarze{% endblock %}
+{% block naglowek %}Komentarze:{% endblock %}
+{% block zawartosc %}
+    <form action="" method="post">
+      Czy na pewno chcesz usunąć komentarz?<br>
+      <button>Tak</button><br>
+      <a href="{% url 'komentarze' %}">Nie</a>
+    </form>
+{% endblock %}
