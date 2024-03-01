@@ -3,8 +3,8 @@
 {% block naglowek %}Edytuj Komentarz:{% endblock %}
 {% block zawartosc %}
             <form action="" method="post">
-                Treść: <input type="text" name="tresc" value={{tresc}}>{{trescwarning}}<br>
-                Ocena: <input type="number" name="ocena" value={{ocena}}>{{ocenawarning}}<br>
+                Treść: <input type="text" name="tresc" placeholder={{komentarz.tresc}}>{{trescwarning}}<br>
+                Ocena: <input type="number" name="ocena" placeholder={{komentarz.ocena}}>{{ocenawarning}}<br>
                 <button>POST</button><br>
             </form>
             <thead>

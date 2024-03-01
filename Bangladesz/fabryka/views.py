@@ -35,11 +35,11 @@ def komentarze(request):
 
     komentarze = Komentarz.objects.all()
     
-    if ocena_min:
-        komentarze = Komentarz.objects.filter(ocena__lte = ocena_max )
-
     if ocena_max:
-        komentarze = Komentarz.objects.filter(ocena__gte = ocena_min)
+        komentarze = komentarze.filter(ocena__lte = ocena_max )
+
+    if ocena_min:
+        komentarze = komentarze.filter(ocena__gte = ocena_min)
 
     context={
         'komentarze': komentarze,
@@ -113,7 +113,7 @@ def komentarz_edit(request, id):
             kom = Komentarz(id=id, tresc = tresc, ocena = ocena)
             try:
                 kom.save()
-                return redirect("komentarze")
+                return redirect("komentarze/"+id)
             except:
                 pass
     return render(request, "fabryka/komentarz_edit.html", context)
